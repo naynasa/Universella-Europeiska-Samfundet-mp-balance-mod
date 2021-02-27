@@ -1,0 +1,69 @@
+namespace = mjl_zlew_events
+normal_or_historical_nations = yes
+
+country_event = {
+	id = mjl_zlew_events.1
+	title = "mjl_zlew_events.EVTNAME1"
+	desc = "mjl_zlew_events.EVTDESC1"
+	picture = ANGRY_MOB_eventPicture
+		
+	trigger = {
+		was_player = yes
+		is_at_war = no
+	}
+	mean_time_to_happen = {
+		years = 50
+	}
+	option = {
+		name = "mjl_zlew_events.EVTOPTA1"
+		add_country_modifier = {
+			name = "mjl_table_slam"
+			duration = 5
+		}
+	}
+}
+
+#country_event = {
+#	id = mjl_zlew_events.2
+#	title = "mjl_zlew_events.EVTNAME2"
+#	desc = "mjl_zlew_events.EVTDESC2"
+#	picture = ANGRY_MOB_eventPicture
+#		
+#	fire_only_once = yes
+#
+#	trigger = {
+#		tag = TIM
+#	}
+#	mean_time_to_happen = {
+#		days = 1
+#	}
+#	option = {
+#		name = "mjl_zlew_events.EVTOPTA2"
+#		every_province = {
+#			limit = {
+#				is_core = TIM
+#				NOT = { owned_by = TIM }
+#			}
+#			remove_core = TIM
+#		}
+#	}
+#}
+
+country_event = {
+	id = mjl_zlew_events.8
+	title = "mjl_zlew_events.EVTNAME8"
+	desc = "mjl_zlew_events.EVTDESC8"
+	picture = ANGRY_MOB_eventPicture
+		
+	trigger = {
+		was_player = yes
+		is_at_war = yes
+	}
+	mean_time_to_happen = {
+		years = 8
+	}
+	option = {
+		name = "mjl_zlew_events.EVTOPTA8"
+		add_yearly_manpower = 0.01
+	}
+}

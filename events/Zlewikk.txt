@@ -1,0 +1,840 @@
+
+namespace = zlewikk
+normal_or_historical_nations = yes
+
+country_event = {
+	id = zlewikk.1
+	title = zlewikk.1.t
+	desc = zlewikk.1.d
+	picture = STREET_SPEECH_eventPicture
+
+	trigger = {
+		ROOT = {
+			NOT = {
+				has_country_flag = zlewikk_ruined_campaign
+			}
+		is_bankrupt = yes
+		}
+	}
+
+	immediate = {
+		ROOT = {
+			set_country_flag = zlewikk_ruined_campaign
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = zlewikk.1.1
+		random_owned_province = {
+				add_devastation = 1
+			}
+	}
+}
+
+country_event = {
+	id = zlewikk.2
+	title = zlewikk.2.t
+	desc = zlewikk.2.d
+	picture = ECONOMY_eventPicture
+
+	trigger = {
+		ROOT = {
+			NOT = {
+				has_country_flag = zlewikk_florrynomics
+			}
+			has_country_flag = zlewikk_5_loans
+		}
+	}
+
+	immediate = {
+		ROOT = {
+			set_country_flag = zlewikk_florrynomics
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = zlewikk.2.1
+		add_country_modifier = {
+			name = zlewikk_florrynomics_modifier
+			duration = 30
+		}
+	}
+}
+
+country_event = {
+	id = zlewikk.3
+	title = zlewikk.3.t
+	desc = zlewikk.3.d
+	picture = HUSSARS_eventPicture
+
+	trigger = {
+		ROOT = {
+			NOT = {
+				has_country_flag = zlewikk_arumba
+			}
+			num_of_cavalry = 10
+		}
+	}
+
+	immediate = {
+		ROOT = {
+			set_country_flag = zlewikk_arumba
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = zlewikk.3.1
+		add_country_modifier = {
+			name = zlewikk_arumba_modifier
+			duration = 5
+		}
+	}
+}
+
+country_event = {
+	id = zlewikk.4
+	title = zlewikk.4.t
+	desc = zlewikk.4.d
+	picture = RELIGION_eventPicture
+
+	trigger = {
+		ROOT = {
+			NOT = {
+				has_country_flag = zlewikk_habibi
+				is_at_war = yes
+			}
+			
+		}
+	}
+
+	immediate = {
+		ROOT = {
+			set_country_flag = zlewikk_habibi
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+	}
+	
+	option = {
+		name = zlewikk.4.1
+		add_country_modifier = {
+			name = zlewikk_habibi_modifier
+			duration = 5
+		}
+	}
+}
+
+country_event = {
+	id = zlewikk.5
+	title = zlewikk.5.t
+	desc = zlewikk.5.d
+	picture = TOURNAMENT_eventPicture
+
+	trigger = {
+		ROOT = {
+			NOT = {
+				has_country_flag = zlewikk_blob_battles
+			}
+			is_at_war = yes
+		}
+	}
+
+	immediate = {
+		ROOT = {
+			set_country_flag = zlewikk_blob_battles
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = zlewikk.5.1
+		add_manpower = 0.068
+	}
+}
+
+country_event = {
+	id = zlewikk.6
+	title = zlewikk.6.t
+	desc = zlewikk.6.d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	trigger = {
+		ROOT = {
+			NOT = {
+				has_country_flag = zlewikk_we_got_him
+				owns = 257
+			}
+			controls = 257
+		}
+	}
+
+	immediate = {
+		ROOT = {
+			set_country_flag = zlewikk_we_got_him
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = zlewikk.6.1
+		257 = {
+			add_devastation = 1
+		}
+	}
+}
+
+country_event = {
+	id = zlewikk.7
+	title = zlewikk.7.t
+	desc = zlewikk.7.d
+	picture = SCOTTISH_MERCENARIES_eventPicture
+
+	trigger = {
+		918 = {
+			NOT = { has_province_flag = zlewikk_choo_choo }
+		}
+		ROOT = {
+			owns_core_province = 918
+			ai = no
+		}
+	}
+
+	immediate = {
+		918 = {
+			set_province_flag = zlewikk_choo_choo
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = zlewikk.7.1
+		918 = {
+			add_base_production = 5
+		}
+	}
+}
+
+country_event = {
+	id = zlewikk.8
+	title = zlewikk.8.t
+	desc = zlewikk.8.d
+	picture = LAND_MILITARY_eventPicture
+
+	trigger = {
+		ROOT = {
+			was_player = yes		
+		}
+		has_country_flag = zlewikk_dev_manpower_2
+		OR = {
+			AND = {
+				#has_country_flag = zlewikk_dev_manpower_2
+				is_year = 1479
+				NOT = {
+					has_country_flag = zlewikk_dev_manpower_3
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_dev_manpower_3
+				is_year = 1504
+				NOT = {
+					has_country_flag = zlewikk_dev_manpower_4
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_dev_manpower_4
+				is_year = 1529
+				NOT = {
+					has_country_flag = zlewikk_dev_manpower_5
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_dev_manpower_5
+				is_year = 1554
+				NOT = {
+					has_country_flag = zlewikk_dev_manpower_6
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_dev_manpower_6
+				is_year = 1579
+				NOT = {
+					has_country_flag = zlewikk_dev_manpower_7
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_dev_manpower_7
+				is_year = 1604
+				NOT = {
+					has_country_flag = zlewikk_dev_manpower_8
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_dev_manpower_8
+				is_year = 1629
+				NOT = {
+					has_country_flag = zlewikk_dev_manpower_9
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_dev_manpower_9
+				is_year = 1654
+				NOT = {
+					has_country_flag = zlewikk_dev_manpower_10
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_dev_manpower_10
+				is_year = 1679
+				NOT = {
+					has_country_flag = zlewikk_dev_manpower_11
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_dev_manpower_11
+				is_year = 1704
+				NOT = {
+					has_country_flag = zlewikk_dev_manpower_12
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_dev_manpower_12
+				is_year = 1729
+				NOT = {
+					has_country_flag = zlewikk_dev_manpower_13
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_dev_manpower_13
+				is_year = 1754
+				NOT = {
+					has_country_flag = zlewikk_dev_manpower_14
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_dev_manpower_14
+				is_year = 1779
+				NOT = {
+					has_country_flag = zlewikk_dev_manpower_15
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_dev_manpower_15
+				is_year = 1804
+				NOT = {
+					has_country_flag = zlewikk_dev_manpower_16
+				}
+			}
+		}
+	}
+
+	#immediate = {
+	#	set_country_flag = zlewikk_dev_manpower
+	#}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = zlewikk.8.1
+		random_owned_province = {
+   			add_base_manpower = 1
+		}
+		if = {
+			limit = {
+				is_year = 1479
+			}
+			set_country_flag = zlewikk_dev_manpower_3
+       }
+       if = {
+			limit = {
+				is_year = 1504
+			}
+			set_country_flag = zlewikk_dev_manpower_4
+       }
+       if = {
+			limit = {
+				is_year = 1529
+			}
+			set_country_flag = zlewikk_dev_manpower_5
+       }
+       if = {
+			limit = {
+				is_year = 1554
+			}
+			set_country_flag = zlewikk_dev_manpower_6
+       }
+       if = {
+			limit = {
+				is_year = 1579
+			}
+			set_country_flag = zlewikk_dev_manpower_7
+       }
+       if = {
+			limit = {
+				is_year = 1604
+			}
+			set_country_flag = zlewikk_dev_manpower_8
+       }
+       if = {
+			limit = {
+				is_year = 1629
+			}
+			set_country_flag = zlewikk_dev_manpower_9
+       }
+       if = {
+			limit = {
+				is_year = 1654
+			}
+			set_country_flag = zlewikk_dev_manpower_10
+       }
+       if = {
+			limit = {
+				is_year = 1679
+			}
+			set_country_flag = zlewikk_dev_manpower_11
+       }
+       if = {
+			limit = {
+				is_year = 1704
+			}
+			set_country_flag = zlewikk_dev_manpower_12
+       }
+       if = {
+			limit = {
+				is_year = 1729
+			}
+			set_country_flag = zlewikk_dev_manpower_13
+       }
+       if = {
+			limit = {
+				is_year = 1754
+			}
+			set_country_flag = zlewikk_dev_manpower_14
+       }
+       if = {
+			limit = {
+				is_year = 1779
+			}
+			set_country_flag = zlewikk_dev_manpower_15
+       }
+        if = {
+			limit = {
+				is_year = 1804
+			}
+			set_country_flag = zlewikk_dev_manpower_16
+       }
+	}
+}
+
+country_event = {
+	id = zlewikk.9
+	title = zlewikk.9.t
+	desc = zlewikk.9.d
+	picture = BURGHER_ESTATE_eventPicture
+
+	trigger = {
+		ROOT = {
+			NOT = {
+				OR = {
+				num_of_estate_privileges = {
+					estate = estate_brahmins
+					value = 1
+				}
+				num_of_estate_privileges = {
+					estate = estate_church
+					value = 1
+				}
+				num_of_estate_privileges = {
+					estate = estate_maratha
+					value = 1
+				}
+				num_of_estate_privileges = {
+					estate = estate_nobles
+					value = 1
+				}
+				num_of_estate_privileges = {
+					estate = estate_vaisyas
+					value = 1
+				}
+				num_of_estate_privileges = {
+					estate = estate_burghers
+					value = 1
+				}
+				num_of_estate_privileges = {
+					estate = estate_cossacks
+					value = 1
+				}
+				num_of_estate_privileges = {
+					estate = estate_nomadic_tribes
+					value = 1
+				}
+				num_of_estate_privileges = {
+					estate = estate_dhimmi
+					value = 1
+				}
+				num_of_estate_privileges = {
+					estate = estate_jains
+					value = 1
+				}
+				num_of_estate_privileges = {
+					estate = estate_rajput
+					value = 1
+				}
+				}
+			}
+		}
+	}
+
+	#immediate = {
+	#	ROOT = {
+	#		set_country_flag = zlewikk_estate_agendas
+	#	}
+	#}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	option = {
+		name = zlewikk.9.1
+		
+	}
+}
+
+country_event = {
+	id = zlewikk.10
+	title = zlewikk.10.t
+	desc = zlewikk.10.d
+	picture = ADVISOR_eventPicture
+
+	trigger = {
+	#	ROOT = {
+	#		NOT = {
+	#			has_country_flag = zlewikk_florrynomics
+	#		}
+	#		
+	#	}
+		OR = {
+			AND = {
+				#has_country_flag = zlewikk_skan_2
+				is_year = 1469
+				NOT = {
+					has_country_flag = zlewikk_skan_3
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_skan_3
+				is_year = 1494
+				NOT = {
+					has_country_flag = zlewikk_skan_4
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_skan_4
+				is_year = 1519
+				NOT = {
+					has_country_flag = zlewikk_skan_5
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_skan_5
+				is_year = 1544
+				NOT = {
+					has_country_flag = zlewikk_skan_6
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_skan_6
+				is_year = 1569
+				NOT = {
+					has_country_flag = zlewikk_skan_7
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_skan_7
+				is_year = 1594
+				NOT = {
+					has_country_flag = zlewikk_skan_8
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_skan_8
+				is_year = 1619
+				NOT = {
+					has_country_flag = zlewikk_skan_9
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_skan_9
+				is_year = 1644
+				NOT = {
+					has_country_flag = zlewikk_skan_10
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_skan_10
+				is_year = 1669
+				NOT = {
+					has_country_flag = zlewikk_skan_11
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_skan_11
+				is_year = 1694
+				NOT = {
+					has_country_flag = zlewikk_skan_12
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_skan_12
+				is_year = 1719
+				NOT = {
+					has_country_flag = zlewikk_skan_13
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_skan_13
+				is_year = 1744
+				NOT = {
+					has_country_flag = zlewikk_skan_14
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_skan_14
+				is_year = 1769
+				NOT = {
+					has_country_flag = zlewikk_skan_15
+				}
+			}
+			AND = {
+				has_country_flag = zlewikk_skan_15
+				is_year = 1794
+				NOT = {
+					has_country_flag = zlewikk_skan_16
+				}
+			}
+		}
+	}
+
+	#immediate = {
+	#	ROOT = {
+	#		set_country_flag = zlewikk_florrynomics
+	#	}
+	#}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = zlewikk.10.1
+		add_prestige = 1
+		if = {
+			limit = {
+				is_year = 1469
+			}
+			set_country_flag = zlewikk_skan_3
+       }
+       if = {
+			limit = {
+				is_year = 1494
+			}
+			set_country_flag = zlewikk_skan_4
+       }
+       if = {
+			limit = {
+				is_year = 1519
+			}
+			set_country_flag = zlewikk_skan_5
+       }
+       if = {
+			limit = {
+				is_year = 1544
+			}
+			set_country_flag = zlewikk_skan_6
+       }
+       if = {
+			limit = {
+				is_year = 1569
+			}
+			set_country_flag = zlewikk_skan_7
+       }
+       if = {
+			limit = {
+				is_year = 1594
+			}
+			set_country_flag = zlewikk_skan_8
+       }
+       if = {
+			limit = {
+				is_year = 1619
+			}
+			set_country_flag = zlewikk_skan_9
+       }
+       if = {
+			limit = {
+				is_year = 1644
+			}
+			set_country_flag = zlewikk_skan_10
+       }
+       if = {
+			limit = {
+				is_year = 1669
+			}
+			set_country_flag = zlewikk_skan_11
+       }
+       if = {
+			limit = {
+				is_year = 1694
+			}
+			set_country_flag = zlewikk_skan_12
+       }
+       if = {
+			limit = {
+				is_year = 1719
+			}
+			set_country_flag = zlewikk_skan_13
+       }
+       if = {
+			limit = {
+				is_year = 1744
+			}
+			set_country_flag = zlewikk_skan_14
+       }
+       if = {
+			limit = {
+				is_year = 1769
+			}
+			set_country_flag = zlewikk_skan_15
+       }
+        if = {
+			limit = {
+				is_year = 1794
+			}
+			set_country_flag = zlewikk_skan_16
+       }
+	}
+}
+
+country_event = {
+	id = zlewikk.11
+	title = zlewikk.11.t
+	desc = zlewikk.11.d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	trigger = {
+		ROOT = {
+				NOT = {
+					has_country_flag = zlewikk_moskau_moskau
+					owns = 295
+				}
+				controls = 295
+			}
+	}
+
+	immediate = {
+		ROOT = {
+			set_country_flag = zlewikk_moskau_moskau
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = zlewikk.11.1
+		295 = {
+			add_devastation = 1
+		}
+	}
+}
+
+country_event = {
+	id = zlewikk.12
+	title = zlewikk.12.t
+	desc = zlewikk.12.d
+	picture = BANKRUPTCY_eventPicture
+
+	trigger = {
+		ROOT = {
+				has_country_flag = zlewikk_eco_dev
+		}
+			NOT = {
+				has_country_flag = zlewikk_eco_dev_2
+			}
+	}
+
+	immediate = {
+		ROOT = {
+			set_country_flag = zlewikk_eco_dev_2
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	option = {
+		name = zlewikk.12.1
+		random_owned_province = {
+    		add_base_tax = 1
+		}
+	}
+}
+
+country_event = {
+	id = zlewikk.13
+	title = zlewikk.13.t
+	desc = zlewikk.13.d
+	picture = LAND_MILITARY_eventPicture
+
+	trigger = {
+		ROOT = {
+			NOT = {
+				has_country_flag = zlewikk_dev_manpower_2
+			}
+#		has_country_flag = zlewikk_dev_manpower_2
+		}
+		is_year = 1454
+	}
+
+	immediate = {
+		set_country_flag = zlewikk_dev_manpower_2
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = zlewikk.13.1
+		random_owned_province = {
+   			add_base_manpower = 1
+		}
+	}
+}
